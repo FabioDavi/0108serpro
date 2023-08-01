@@ -1,11 +1,5 @@
 let alunos = [];
 
-
-
-
-
-
-
 function insereAluno(nome, idade, grau) {
     const aluno = {
         nomeAluno: nome,
@@ -47,8 +41,7 @@ insereAluno('fabio', 49, 'inteligente');
 insereAluno('Anacleto', 94, 'burro');
 insereAluno('Ana', 54, 'inteligente');
 
-updateAluno(0, 'Tander', 55, 'genio');
-excluiAluno(0);
+updateAluno(0, 'Fabio Davi Rauh', 55, 'genio');
+
 console.log(buscaAlunos());
 
-console.log(buscaAluno(1));

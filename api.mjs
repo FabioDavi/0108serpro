@@ -1,6 +1,8 @@
 
 export { bank, exibirTUDO }
 
+let transacoes = [];
+
 let person = {
     nome: 'fabio davi rauh',
     idade: 48,
@@ -13,12 +15,19 @@ let operation = {
             return 'saldo insuficiente'
         }
         else {
-            return saldo -= valor;
+            const transactValue = saldo -= valor;
+            transacoes.push(`(-) debito: ${valor} - saldo:${transactValue}`)
+            return transactValue;
         }
 
     },
     depositar: function (saldo, valor) {
-        return saldo += valor;
+        const transactValueDeposito = saldo += valor;
+        transacoes.push(`(+) crédito ${valor} - saldo:${transactValueDeposito}`)
+        return transactValueDeposito;
+    },
+    listaTransacoes: function (ordenar) {
+        return transacoes;
     }
 }
 
@@ -26,6 +35,7 @@ let bank = {
 
     person: person,
     operation: operation,
+    transacao: transacoes
 
 }
 
@@ -61,7 +71,7 @@ async function forEachData() {
 }
 
 
-async function filterData() {
+function filterData() {
     const arr = [1, 'apple', 'banana', 'orange', 'pineapple', 'watermelon', 1];
 
     const itensComAnd = arr.filter((item) => {
@@ -72,9 +82,9 @@ async function filterData() {
 }
 
 
-testFilter().then(result => {
-    console.log(result);
-});
+//testFilter().then(result => {
+// console.log(result);
+//});
 
 
 
@@ -122,8 +132,14 @@ async function buscaApi() {
     return (await fetch('https://jsonplaceholder.typicode.com/photos')).json();
 }
 
+async function buscaApi2() {
+    const apiResult = await fetch('https://jsonplaceholder.typicode.com/photos');
+    const apir = apiResult.json();
+    return apir;
+}
+
 async function exibirTUDO() {
-    const api = await buscaApi()
+    const api = await buscaApi2()
 
     const itens = api.map((item, i) => {
         return `<p>${i} - item:${item.title}</p>`
@@ -137,10 +153,19 @@ async function exibirTUDO() {
 
 
 async function exibir() {
-    const api = await buscaApi()
+    const api = await buscaApi2()
     console.log(api)
 
 }
+
+//testFilter().then(result => {
+// console.log(result);
+//});
+
+
+exibirTUDO().then(resultado => {
+    console.log(resultado);
+})
 
 
 

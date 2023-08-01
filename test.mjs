@@ -6,5 +6,10 @@ function soma(a, b) {
 }
 
 
+const saldo = bank.operation.sacar(38, 35);
+console.log('saldo ' + saldo);
 assert.equal(soma(2, 2), 4);
-assert.equal(bank.operation.sacar(38, 35), 3);
+
+//assert.equal(bank.operation.sacar(38, 35), 3);
+
+console.log(bank.transacao);

@@ -8,11 +8,5 @@
             "src": "./index.html",
             "use": "@vercel/node"
         }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/"
-        }
     ]
 }
