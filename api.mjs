@@ -143,7 +143,7 @@ async function exibirTUDO() {
 
     const itens = api.map((item, i) => {
         return `<p>${i} - item:${item.title}</p>`
-    }).join('<br/>');
+    }).join('<br/>-<br/>');
 
 
     return itens;
