@@ -1,12 +1,15 @@
 {
     "version": 2,
-    "regions": [
-        "gru1"
-    ],
     "builds": [
         {
-            "src": "./index.html",
+            "src": "index.html",
             "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "index.html"
         }
     ]
 }
