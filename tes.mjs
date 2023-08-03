@@ -52,6 +52,6 @@ console.log(lerLivros()); // Output: [ { titulo: 'JavaScript Avançado', autor: 
 
 
 const resultado = lerLivros();
-//document.querySelector('#app').innerHTML = JSON.stringify(resultado);
+document.querySelector('#app').innerHTML = JSON.stringify(resultado);
 
 
