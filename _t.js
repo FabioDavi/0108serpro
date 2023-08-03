@@ -31,7 +31,6 @@ array.forEach(item => {
 
 const x = array
     .filter(item => {
-
         return item.toString().includes('1');
     })
     .map(item => {
