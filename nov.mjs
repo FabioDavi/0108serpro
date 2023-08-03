@@ -33,6 +33,12 @@ function dificilExcluir(index) {
 }
 
 incluiLivro('Torto Arado', 'Itamar Vieira Junior');
+incluiLivro('Torto Arado', 'Itamar Vieira Junior');
+incluiLivro('Torto Arado', 'Itamar Vieira Junior');
+incluiLivro('Torto Arado', 'Itamar Vieira Junior');
+incluiLivro('Torto Arado', 'Itamar Vieira Junior');
+incluiLivro('Torto Arado', 'Itamar Vieira Junior');
+incluiLivro('Torto Arado', 'Itamar Vieira Junior');
 atualizaLivros(2, 'Adeus, Aurora', ' Amie Kaufman e Jay Kristoff')
 dificilExcluir(1);
 console.log(exibirLivros());
