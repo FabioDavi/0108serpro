@@ -37,4 +37,4 @@ atualizaLivros(2, 'Adeus, Aurora', ' Amie Kaufman e Jay Kristoff')
 dificilExcluir(0);
 console.log(exibirLivros());
 console.log(exibirLivro(3));
-document.querySelector('#p1').innerHTML = exibirLivros();
+document.querySelector('#p1').innerHTML = JSON.stringify(exibirLivros());
