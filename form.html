@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>t</title>
+</head>
+
+<body>
+    <p>
+        <label for="txt1">Valor 1:</label><br />
+        <input type="text" id="txt1" />
+    </p>
+    <p>
+        <label for="txt2">Valor 2:</label><br />
+        <input type="text" id="txt2" />
+    </p>
+    <p>
+        <label for="select1">Pessoa:</label><br />
+        <select id="select1">
+            <option value="0">Selecione</option>
+        </select>
+    </p>
+    <p>
+
+        <button id="bntSubmitInfo" onclick="calculaInfo()">Calcular</button>
+    </p>
+
+</body>
+<script>
+
+    const dataCustomer = [
+        { nome: 'Fábio Davi Rauh', tipoSanguineo: 'O+' },
+        { nome: 'Ana Lucia', tipoSanguineo: 'A' },
+    ]
+
+
+
+    console.log(dataCustomer)
+    function criaCombo() {
+        const select = document.getElementById('select1');
+        for (const elem of dataCustomer) {
+            const option = document.createElement('option');
+            option.value = elem.tipoSanguineo;
+            option.text = elem.nome;
+            select.appendChild(option);
+
+        }
+
+    }
+
+
+    function calculaInfo() {
+        const select = document.getElementById('select1')
+        const optionSelected = select.options[select.selectedIndex].value;
+        console.log(optionSelected)
+    }
+
+    criaCombo();
+</script>
+
+</html>
