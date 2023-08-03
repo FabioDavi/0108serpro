@@ -34,7 +34,7 @@ function dificilExcluir(index) {
 
 incluiLivro('Torto Arado', 'Itamar Vieira Junior');
 atualizaLivros(2, 'Adeus, Aurora', ' Amie Kaufman e Jay Kristoff')
-dificilExcluir(0);
+dificilExcluir(1);
 console.log(exibirLivros());
 console.log(exibirLivro(3));
 document.querySelector('#p1').innerHTML = JSON.stringify(exibirLivros());
