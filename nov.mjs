@@ -1,46 +1,42 @@
-const livros = [
-    { titulo: '100 anos de solidão', autor: 'Gabriel Garcia Marques' },
-    { titulo: 'Ensaio sobre a cegueira', autor: 'José Saramago' }
-]
+const estoque = [];
 
-function exibirLivros() {
-    return livros;
+function adicionarProduto(nome, preco, quantidade) {
+    estoque.push({ nome, preco, quantidade });
 }
 
-function exibirLivro(index) {
-    return livros[index] ? livros[index] : 'nao encontrado';
+function listarProdutos() {
+    console.log("Produtos em estoque:");
+    estoque.forEach((produto, index) => {
+        console.log(`${index + 1}. ${produto.nome} - R$ ${produto.preco} - Quantidade: ${produto.quantidade}`);
+    });
 }
 
-function incluiLivro(titulo, autor) {
-    const livro = { titulo, autor }
-    livros.push(livro);
+function calcularValorTotalEmEstoque() {
+    let valorTotal = 0;
+    estoque.forEach(produto => {
+        valorTotal += produto.preco * produto.quantidade;
+    });
+    return valorTotal;
 }
 
-function atualizaLivros(index, titulo, autor) {
-    if (livros[index]) {
-        livros[index].titulo = titulo || livros[index].titulo;
-        livros[index].autor = autor || livros[index].autor;
-        return livros[index];
-    }
+/*
+function calcularValorTotalEmEstoque() {
+    const valorTotal = estoque.reduce((acumulador, produto) => {
+        return acumulador + produto.preco * produto.quantidade;
+    }, 0);
+    return valorTotal;
 }
 
+*/
 
-function dificilExcluir(index) {
-    if (livros[index]) {
-        const itemExcluido = livros.splice(index, 1);
-        return itemExcluido[0];
-    }
-}
+// Adicionar alguns produtos ao estoque
+adicionarProduto("Camiseta", 39.99, 50);
+adicionarProduto("Calça Jeans", 89.90, 30);
+adicionarProduto("Tênis", 129.99, 20);
 
-incluiLivro('Torto Arado', 'Itamar Vieira Junior');
-incluiLivro('Torto Arado', 'Itamar Vieira Junior');
-incluiLivro('Torto Arado', 'Itamar Vieira Junior');
-incluiLivro('Torto Arado', 'Itamar Vieira Junior');
-incluiLivro('Torto Arado', 'Itamar Vieira Junior');
-incluiLivro('Torto Arado', 'Itamar Vieira Junior');
-incluiLivro('Torto Arado', 'Itamar Vieira Junior');
-atualizaLivros(2, 'Adeus, Aurora', ' Amie Kaufman e Jay Kristoff')
-dificilExcluir(1);
-console.log(exibirLivros());
-console.log(exibirLivro(3));
-document.querySelector('#p1').innerHTML = JSON.stringify(exibirLivros());
+// Listar os produtos no estoque
+listarProdutos();
+
+// Calcular o valor total em estoque
+const valorTotalEmEstoque = calcularValorTotalEmEstoque();
+console.log(`Valor total em estoque: R$ ${valorTotalEmEstoque}`);
